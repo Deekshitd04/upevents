@@ -1,0 +1,16 @@
+{% extends 'user/basic.html' %}
+{% block title %}
+upEvents-News
+{% endblock title %}
+ {% block newsactive %} active {% endblock newsactive %}
+ {% block body %}
+ <!-- it lists the news which in the database  -->
+ <div class="container m-4 mx-auto">
+    <h4 class="mt-4 px-2">News Section</h4>
+     {% for news in news_obj %}
+     <div class="card p-2 m-2">
+       <h5><a href="/news/{{news.news_id}}">{{news.news_id}}. {{news.news_title}}</a></h5>
+     </div>
+     {% endfor %}
+    </div>
+ {% endblock body %}

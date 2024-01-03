@@ -1,0 +1,60 @@
+{% extends 'user/basic.html' %}
+{% block title %}
+Aboutus
+{% endblock title %}
+{% block aboutactive %} active {% endblock aboutactive %}
+{% block bg-img %}
+style="background-color:#E1F5FE;"
+{% endblock bg-img %}
+{% block body %}
+{%load static%}
+<!-- START THE FEATURETTES -->
+<div class="shadow m-4 p-4 bg-white" >
+  <div class="row featurette cls-head">
+    <div class="col-md-8 anime  animate__animated animate__slideInLeft animate__slow">
+      <h2 class="featurette-heading fw-normal lh-1 mt-4">UPEVENTS IS AN EVENT MANAGEMENT BASED ORGANISATION .<span
+          class="text-muted"></span></h2>
+      <p class="lead">WE ARE HERE TO DESIGN AND MANAGE SOME GREAT EVENTS <br><br>
+        WE CAN TELL YOU ABOUT OUR SERVICES, THERE IS NO BETTER RECOMMENDATION THAN OUR CUSTOMERS WHO HAVE
+        EXPERIENCED WHAT WE OFFER FIRST HAND - THESE ARE SOME OF THEIR COMMENTS...</p>
+    </div>
+    <div class="col-md-4 mt-4 animeRight animate__animated animate__slideInRight animate__slow">
+      <img src="{% static '/user/images/birthday.jpg' %}" width="300" height="230" alt="" class="rounded">
+
+    </div>
+  </div>
+</div>
+
+<div class="shadow m-4 p-4 bg-white" >
+  <div class="row featurette cls-head2">
+    <div class="col-md-4 mt-4 anime animate__animated animate__slideInLeft animate__slow">
+      <img src="{% static '/user/images/birthday.jpg' %}" width="300" height="230" alt="" class="rounded">
+
+    </div>
+    <div class="col-md-8 animeRight  animate__animated animate__slideInRight animate__slow">
+      <h2 class="featurette-heading fw-normal lh-1 mt-4">We offer the good catering service.<span
+          class="text-muted"></span></h2>
+      <p class="lead">We provide tasty and best quality food .<br><br>
+        We have broad category of food items ,we product north ,south indian style food.Also we offer both veg and non-veg dishes.We separate and indepent teams for veg and non-veg.</p>
+    </div>
+    
+  </div>
+</div>
+
+<div class="shadow m-4 p-4 bg-white" >
+  <div class="row featurette cls-head3">
+    <div class="col-md-8 anime  animate__animated animate__slideInLeft animate__slow">
+      <h2 class="featurette-heading fw-normal lh-1 mt-4">One of Best Decoration team available in Market.<span
+          class="text-muted"></span></h2>
+      <p class="lead">We provide some colorful and creative designs.<br><br>
+        We offer flower decoration, you can customise decoration according to your interest.Ragoli can be provided . Decoration with electric bulbs also available</p>
+    </div>
+    <div class="col-md-4 mt-4 animeRight animate__animated animate__slideInRight animate__slow">
+      <img src="{% static '/user/images/birthday.jpg' %}" width="300" height="230" alt="" class="rounded">
+
+    </div>
+  </div>
+</div>
+
+
+{% endblock body %}

@@ -1,0 +1,141 @@
+{% extends 'user/basic2.html' %}
+{% load static %}
+{% block title %}
+upevents
+{% endblock title %}
+{% block style %}
+<style>
+    .home-text-bg {
+        background-image: url("{% static 'user/images/background/3386851.jpg'%}");
+        height: 80vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    body{
+        background-color: #E1F5FE;
+    }
+</style>
+{% endblock style %}
+{% block homeactive %} active {% endblock homeactive %}
+{% block body %}
+
+
+<div class="d-flex text-center home-text-bg text-white align-items-center justify-content-center flex-column bg-white ">
+    <h1 class="animate__animated animate__flash display-1" style="font-family: 'Oleo Script Swash Caps', cursive;">upEvents</h1>
+    <h4 class=" animate__animated animate__slideInLeft animate__slow" style="font-family: 'Oleo Script Swash Caps', cursive;">An Event Management Organisation </h4>
+</div>
+
+
+<!-- cards show the event name and image starts here -->
+<h1 class="m-2 mt-4 text-primary text-center">Select Any Events Here</h1>
+<div class="container" style="width:60vw ;">
+<div class="row my-4 shadow mx-auto p-3 bg-white justify-content-around">
+    {% for event in events %}
+    <div class="card col-4 border-0 card-hover mt-4" style="width: 19rem;">
+        <a class="card-block stretched-link text-decoration-none" href="/user/eventview">
+            <div class="bg-dark">
+            <img src="/media/{{event.event_image}}" class="card-img-top " alt="..." height="200px" width="200px" style="opacity:0.6 ;">
+        </div>
+            <div class="card-body">
+                <div class="carousel-caption d-none d-md-block font-weight-bold">
+                    <h4 class="card-title ">{{event.event_title}}</h4>
+                    <p class="card-text">
+                        {{event.event_desc}}
+                    </p>
+
+                </div>
+            </div>
+        </a>
+    </div>
+    {% endfor%}
+
+</div>
+</div>
+<!-- end of card show  -->
+
+<!-- just for about us brief show  -->
+<div class="shadow m-2 p-4 bg-white" >
+    <div class="row featurette cls-head">
+        <div class="col-md-8   animate__animated animate__slideInLeft animate__slow">
+            <h2 class="featurette-heading fw-normal lh-1">UPEVENTS IS AN EVENT MANAGEMENT BASED ORGANISATION .<span
+                    class="text-muted"></span></h2>
+            <p class="lead">WE ARE HERE TO DESIGN AND MANAGE SOME GREAT EVENTS <br><br>
+                WE CAN TELL YOU ABOUT OUR SERVICES, THERE IS NO BETTER RECOMMENDATION THAN OUR CUSTOMERS WHO HAVE
+                EXPERIENCED WHAT WE OFFER FIRST HAND - THESE ARE SOME OF THEIR COMMENTS...</p>
+        </div>
+        <div class="col-md-4 mt-4  animate__animated animate__slideInRight animate__slow">
+            <img src="{% static '/user/images/birthday.jpg' %}" width="300" height="230" alt="" class="rounded">
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col p-2">
+            <a href="/aboutus" class="btn btn-primary mx-2 " type="button">Know More ></a>
+        </div>
+    </div>
+</div>
+
+
+<!-- what people are saying about us Testinomials  -->
+<div class="shadow position-relative text-center mt-4 p-3" style="height: 350px;  background-color:#BBDEFB ">
+    <h1>What people are saying about us</h1>
+    <div class="row justify-content-around  position-absolute top-100 start-50  cls-head"
+        style="transform:translate(-50%,-59%)">
+        <div class="col card m-4 shadow p-3  animate__animated animate__slideInLeft animate__slow anime"
+            style="width:89vw ;">
+            <p>"A huge thank you to the team at upevent Management for making my 40th Birthday so special. I chose
+                upevent catering and staff because from the first contact I felt confident in your commitment to make my
+                event exceptional and a willingness to go the extra mile to help with all the planning and details. My
+                guests have all told me that every single canapé was delicious and the chef, catering and beverage staff
+                were so professional, friendly and helpful. You knocked our socks off. Thanks so much. We will
+                definitely use upevent again in the future."</p><br>
+            <h5>J Enright . 40th Birthday Party . Private Home Newport . May 2015</h5>
+        </div>
+        <div class="col card m-4 shadow p-3 animate__animated animate__slideInLeft animate__slow anime "
+            style="width:89vw ;">
+            <p> "Our company KLIK Systems used upevent Management for a corporate event we hold each year. Amy and her
+                staff were efficient, professional and a breath of fresh air to work along side. Amy went above and
+                beyond to create an amazing event that hit the brief given. It was an absolute pleasure working with her
+                and I would highly recommended Amy for any event planning.
+
+                I am looking forward to working with her next year…"</p>
+            <pre><br></pre>
+            <h5>KLIK Systems . Annual VIVID Corporate Event . CBD 100 George + L'Aqua . June 2017</h5>
+        </div>
+        <div class="col card m-4 shadow p-3 animate__animated animate__slideInLeft animate__slow anime"
+            style="width:89vw ;">
+            <p>"I used upevent Management for a corporate New Years Eve function with 100 guests. I found Amy and her
+                team to be extremely professional and competent, but more importantly they were friendly and so easy to
+                deal with. Every aspect of our event went off without a hitch, the food was amazing, it was beautifully
+                presented, the staff were on time, professionally presented and friendly and I have no hesitation in
+                recommending upevent's services. Thank You Amy for a job well done"</p>
+            <pre><br></pre>
+            <h5>Don Hodge Group . Pleasure Point . Corporate NYE Event</h5>
+        </div>
+
+    </div>
+</div>
+<div style="height:230px ; background-color:#03A9F4"></div>
+{% endblock body %}
+{% block js %}
+<script>
+    const animate = document.querySelector('.anime');
+    const animateRight = document.querySelector('.animeRight');
+    animate.classList.remove('animate__slideInLeft')
+    animateRight.classList.remove('animate__slideInRight')
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            const animate = entry.target.querySelector('.anime');
+            const animateRight = entry.target.querySelector('.animeRight');
+            if (entry.isIntersecting) {
+                animate.classList.add('animate__slideInLeft');
+                animateRight.classList.add('animate__slideInRight');
+                return;
+            }
+            animate.classList.remove('animate__slideInLeft')
+            animateRight.classList.remove('animate__slideInRight')
+        });
+    });
+    observer.observe(document.querySelector('.cls-head'));
+</script>
+{% endblock js %}
